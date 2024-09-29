@@ -5,7 +5,7 @@ import { ImageUploader } from '../components/ImageUploader'
 import { CircularImageFrame } from '../components/CircularImageFrame'
 
 export default function Home() {
-  const [uploadedImage, setUploadedImage] = useState('/images/mark.png')
+  const [uploadedImage, setUploadedImage] = useState('/mark.png')
 
   const handleImageUpload = (imageData) => {
     setUploadedImage(imageData)
