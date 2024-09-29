@@ -2,24 +2,22 @@
 
 import { useState } from 'react'
 import { ImageUploader } from '../components/ImageUploader'
+import { CircularImageFrame } from '../components/CircularImageFrame'
 
 export default function Home() {
-  const [uploadedImage, setUploadedImage] = useState(null)
+  const [uploadedImage, setUploadedImage] = useState('/images/mark.png')
 
   const handleImageUpload = (imageData) => {
     setUploadedImage(imageData)
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8 text-center">LinkedIn #OpenToWork Banner Creator</h1>
-      <ImageUploader onImageUpload={handleImageUpload} />
-      {uploadedImage && (
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Uploaded Image:</h2>
-          <img src={uploadedImage} alt="Uploaded" className="max-w-full h-auto" />
-        </div>
-      )}
+    <div className="container mx-auto px-4 py-8 max-w-md">
+      <h1 className="text-3xl font-bold mb-8 text-center text-[#0B65C2]">LinkedIn #OpenToWork Banner Creator</h1>
+      <div className="space-y-8">
+        <ImageUploader onImageUpload={handleImageUpload} />
+        <CircularImageFrame image={uploadedImage} key={uploadedImage} />
+      </div>
     </div>
   )
 }
